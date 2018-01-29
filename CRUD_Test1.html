@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+
+    <title></title>
+
+</head>
+<body>
+    <h3 style="text-align:center; margin-top: 30px; margin-bottom:30px;">MFLF Test past2.1(CRUD)</h3>
+
+    <div class="container" style=" margin-bottom:100px;">
+        <div class="row">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="col-4">
+                <form id="signupform" >
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Firstname :</label>
+                        <input type="text" class="form-control" placeholder="Firstname" id="firstname" name="firstname" required onKeyUp="if(!(isNaN(this.value))) { alert('Please enter a-z,A-Z'); this.value='';}">
+
+                        <label class="col-form-label" for="inputDefault">Lastname :</label>
+                        <input type="text" class="form-control" id="lastname" placeholder="Lastname" name="lastname" required onKeyUp="if(!(isNaN(this.value))) { alert('Please enter a-z,A-Z'); this.value='';}">
+
+                        <label class="col-form-label" for="inputDefault">Age :</label>
+                        <input type="text" class="form-control" id="age" placeholder="Age" name="age" required onKeyUp="if(isNaN(this.value)){ alert('Please enter 0-9'); this.value='';}"/>
+
+                        <label class="col-form-label" for="inputDefault">Salary :</label>
+                        <input type="text" class="form-control" id="salary" placeholder="Salary" name="salar" required OnChange="JavaScript:chkNum(this)">
+
+                        <label class="col-form-label" for="inputDefault">Gender :</label>
+                        <!--input type="text" class="form-control" id="gender" placeholder="Gender"-->
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="gender" value="male" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio1">Male</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="gender" value="female" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio2">Female</label>
+                        </div>
+                        <button class="btn btn-success" type="submit" id="submit" style="margin-top:20px; width:130px;" >Submit</button>
+                        <button id="cancel" class="btn" style="margin-top:20px; width:130px; background-color:#000000;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+ 
+    <script >
+        function chkNum(ele)
+        {
+            var num = parseFloat(ele.value);
+
+            ele.value = num.toFixed(2);
+        }
+
+ 
+      
+
+           
+    </script>
+ 
+    
+  
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCyKJVTOCmYOz35REycoDSgRptV2NZMg5A",
+            authDomain: "wararattestmflf.firebaseapp.com",
+            databaseURL: "https://wararattestmflf.firebaseio.com",
+            projectId: "wararattestmflf",
+            storageBucket: "wararattestmflf.appspot.com",
+            messagingSenderId: "146189825525"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="CRUD_Test.js"></script>
+</body>
+</html>
